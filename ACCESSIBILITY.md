@@ -170,7 +170,7 @@ If accessibility isn't in the Definition of Done, it gets left for later. A stor
 ## Sources
 
 - WHO: [Blindness and vision impairment](https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment) fact sheet
-- WHO: World Report on Vision (via Down To Earth)
+- WHO: World Report on Vision, via Down To Earth: [More than a quarter of the world's population has vision impairment](https://www.downtoearth.org.in/news/health/more-than-a-quarter-of-the-world-s-population-has-vision-impairment-who-67147) (2019)
 - WHO: [Disability](https://www.who.int/news-room/fact-sheets/detail/disability-and-health) fact sheet
 - WHO: [Deafness and hearing loss](https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss) fact sheet
 - W3C: [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/)
