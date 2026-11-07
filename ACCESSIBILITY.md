@@ -4,6 +4,16 @@ How we design, build and write so everyone can use what we make. This file is fo
 
 **Our bar:** WCAG 2.2 level AA on every page, in every release. Where we go further than AA, the rule says so.
 
+## For AI agents
+
+If you're an AI assistant or coding agent working on this project:
+
+- Treat every rule here as a requirement, not a suggestion. Work isn't finished until it meets them.
+- If a request would break a rule, say so in one line, explain who it would shut out, and offer an accessible alternative.
+- Prefer native HTML elements and platform controls over custom builds.
+- Before you hand work back, check it against the Definition of Done. Say which items you couldn't verify and why, for example "contrast not checked: colours come from a variable I can't resolve".
+- Never claim something is "accessible" or "WCAG compliant". Automated checks and your own review aren't an audit.
+
 ## Why it matters
 
 - **1 in 6 people.** 1.3 billion people, 16% of the world, live with significant disability (WHO, 2023). That's not an edge case.
@@ -61,6 +71,7 @@ There's no neutral ground. If you're not including people, you're excluding them
 - Decorative images get empty alt text (`alt=""`) so screen readers skip them. Don't add alt text to everything; only describe images that add information.
 - Icon-only buttons and links have an accessible name, such as `aria-label` or visually hidden text. *(4.1.2, A)*
 - Complex images like charts and diagrams have the data or a longer description close by.
+- Repeated emoji or decorative icons in a row get one description, not one each, so screen readers don't read out the same thing again and again.
 
 ## Audio and video
 
@@ -79,8 +90,8 @@ There's no neutral ground. If you're not including people, you're excluding them
 - A "Skip to main content" link is the first thing that gets focus. *(2.4.1, A)*
 - Tab order follows a logical reading order. Never use a positive `tabindex`. *(2.4.3, A)*
 - Focus is always visible. Never remove the outline without a clear, high-contrast replacement. *(2.4.7, AA)*
-- Sticky headers, cookie banners and chat widgets never fully hide the focused element. *(2.4.11, AA)*
-- When a dialog opens, focus moves into it and stays there. Esc closes it, and focus goes back to whatever opened it.
+- Sticky headers, cookie banners and chat widgets never fully hide the focused element. Use `scroll-padding` so focused items scroll clear of them. *(2.4.11, AA)*
+- When a dialog opens, focus moves into it and stays there. Esc closes it, and focus goes back to whatever opened it. The native `<dialog>` element does most of this for you.
 - Keyboard shortcuts are welcome, but single-key shortcuts can be turned off or remapped, or only work when their component has focus. *(2.1.4, A)*
 
 ## Pointer, touch and voice
@@ -98,7 +109,8 @@ There's no neutral ground. If you're not including people, you're excluding them
 - Every field has a visible label tied to it in code. Placeholder text isn't a label. *(3.3.2, A; 1.3.1, A)*
 - Only ask for what you really need. Mark the optional fields, not the required ones.
 - Personal-detail fields have the right `autocomplete` values so browsers and password managers can fill them in. *(1.3.5, AA)*
-- Error messages say what went wrong and how to fix it, in text, next to the field. "Enter a date like 21/04/1990", not "Invalid input". *(3.3.1, A; 3.3.3, AA)*
+- Error messages say what went wrong and how to fix it, in text, next to the field. "Enter a date like 21/04/1990", not "Invalid input". Link each message to its field with `aria-describedby`. *(3.3.1, A; 3.3.3, AA)*
+- On long forms, also show an error summary at the top that links to each field with a problem, and move focus to it after submitting.
 - Don't make people re-enter something they've already given in the same process. *(3.3.7, A)*
 - Before anything legal, financial or hard to undo is submitted, people can check, correct or cancel it. *(3.3.4, AA)*
 - Focusing a field or choosing an option never submits the form or jumps to a new page by itself. *(3.2.1, A; 3.2.2, A)*
@@ -136,7 +148,16 @@ There's no neutral ground. If you're not including people, you're excluding them
 - Repeated navigation stays in the same place and order on every page. *(3.2.3, AA)*
 - Things that do the same job have the same name and icon everywhere. *(3.2.4, AA)*
 - Help, like a phone number, chat or FAQs, is in the same place on every page. *(3.2.6, A)*
-- PDFs and other downloads are accessible too (tagged, with headings and a reading order), or have an HTML version.
+
+## Documents, emails, slides and social posts
+
+Accessibility isn't only for code. The same rules apply to everything we publish.
+
+- **Documents.** Use real heading styles, not bold or bigger text. Use real lists, and simple tables with a header row. Give images alt text or mark them as decorative. Write link text that makes sense on its own.
+- **PDFs and downloads.** Tag them with headings, a reading order, a document title and a language, or provide an HTML version. Prefer HTML where you can.
+- **Emails.** Send live text, not image-only emails. Set the language, add alt text and use one column that reflows on mobile.
+- **Slides.** Use the built-in layouts so the reading order works, give every slide its own title, and keep contrast and text sizes the same as on screen.
+- **Social posts.** Add alt text to images, write hashtags in #CamelCase so screen readers can say them, and caption every video.
 
 ## Testing
 
@@ -158,7 +179,8 @@ If accessibility isn't in the Definition of Done, it gets left for later. A stor
 - [ ] Images have the right alt text (or `alt=""`), and icon buttons have names
 - [ ] Fields have visible labels and helpful error messages
 - [ ] It works at 200% zoom and 320px wide
-- [ ] Motion respects reduced motion, and nothing flashes
+- [ ] Motion respects reduced motion, nothing flashes, and there are no time limits (or they can be turned off or extended)
+- [ ] Video has captions, audio has a transcript, and audio that plays by itself can be stopped
 - [ ] It makes sense with a screen reader, including status messages
 - [ ] Automated checks pass with no new issues
 

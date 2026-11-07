@@ -2,7 +2,7 @@
 
 A ready-made accessibility standard for your project. Drop one file into your repo, and your team and your AI coding agents all build to WCAG 2.2 AA.
 
-It covers colour, text, layout, motion, images, audio and video, keyboard, touch, forms, semantics, ARIA and content. Each rule is one plain line, names the WCAG criterion and level it comes from, and ends with how to test and a Definition of Done checklist.
+It covers colour, text, layout, motion, images, audio and video, keyboard, touch, forms, semantics, ARIA and content, plus documents, emails, slides and social posts. It has rules written for AI agents too. Each rule is one plain line and names the WCAG criterion and level it comes from. The file ends with how to test and a Definition of Done checklist.
 
 It's based on the [Accessibility for Humans](https://cards.designedforhumans.tech) cards by [Designed for Humans](https://designedforhumans.tech).
 
